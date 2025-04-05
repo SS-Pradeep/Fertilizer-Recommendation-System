@@ -1,0 +1,139 @@
+/* 🌿 Global Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-attachment: fixed;
+  background-color: #F4F1E9; /* Soft Beige */
+  color: #333;
+}
+
+/* 🌾 Form Container */
+.container {
+  max-width: 650px;
+  margin: 60px auto;
+  background: linear-gradient(to bottom right, #ffffff, #F9F9F9);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+  transition: all 0.3s ease-in-out;
+  
+    
+  
+  
+}
+
+/* ✨ Heading Styles */
+h2 {
+  text-align: center;
+  color: #1B5E20; /* Deep Forest Green */
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* 🌱 Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+td {
+  padding: 12px;
+}
+
+/* 🏷️ Label Styles */
+label {
+  font-weight: 600;
+  color: #444;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* ✍ Input Fields */
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  background-color: #FAFAFA;
+  transition: 0.3s;
+  font-size: 1rem;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+  outline: none;
+}
+
+/* 🎨 Button Styling */
+button {
+  width: 48%;
+  padding: 14px;
+  margin-top: 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/* ✅ Submit Button */
+button[type="submit"] {
+  background-color: #2E7D32; /* Rich Green */
+  color: white;
+  box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3);
+}
+
+button[type="submit"]:hover {
+  background-color: #1B5E20;
+  box-shadow: 0 6px 15px rgba(46, 125, 50, 0.5);
+}
+
+/* ❌ Reset Button */
+button[type="reset"] {
+  background-color: #d32f2f; /* Elegant Red */
+  color: white;
+  box-shadow: 0 4px 10px rgba(211, 47, 47, 0.3);
+}
+
+button[type="reset"]:hover {
+  background-color: #b71c1c;
+  box-shadow: 0 6px 15px rgba(211, 47, 47, 0.5);
+}
+
+/* 🌟 Smooth Hover Effects */
+button:hover {
+  transform: translateY(-3px);
+}
+
+/* 🏆 Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    max-width: 90%;
+    padding: 25px;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+/* 🌎 Footer */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9em;
+  color: #666;
+}
