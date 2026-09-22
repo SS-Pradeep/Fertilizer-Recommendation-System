@@ -7,9 +7,14 @@ pipeline that separates data loading, preprocessing, training and
 persistence, while preserving the original training behavior and outputs.
 """
 
+import os
 import pickle
 
 import joblib
+import matplotlib
+
+matplotlib.use("Agg")  # non-interactive backend, needed for headless build environments
+
 import matplotlib.pyplot as plt
 import seaborn as sns
 from imblearn.over_sampling import SMOTE
@@ -19,6 +24,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 
 import pandas as pd
+
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATASET_PATH = os.path.join(REPO_ROOT, "Dataset", "Fertilizer Dataset.csv")
+LABEL_ENCODER_OUTPUT_PATH = os.path.join(REPO_ROOT, "Server_", "label_encoder.pkl")
+MODEL_OUTPUT_PATH = os.path.join(REPO_ROOT, "Server_", "model.pkl")
 
 
 class DataLoader:
@@ -140,7 +150,7 @@ class ModelPersister:
 
 
 def main():
-    loader = DataLoader("ht.csv")
+    loader = DataLoader(DATASET_PATH)
     df = loader.load()
 
     preprocessor = DataPreprocessor()
@@ -150,7 +160,7 @@ def main():
 
     df = preprocessor.encode_crop(df)
     df = preprocessor.encode_fertilizer(df)
-    preprocessor.save_label_encoder()
+    preprocessor.save_label_encoder(LABEL_ENCODER_OUTPUT_PATH)
 
     df1 = df.copy()
     print(df1.describe())
@@ -161,8 +171,8 @@ def main():
 
     # NOTE: preserves the original pipeline's behavior of persisting the
     # baseline `model`, not the SMOTE-balanced classifier trained above.
-    ModelPersister.save(model)
-    ModelPersister.load()
+    ModelPersister.save(model, MODEL_OUTPUT_PATH)
+    ModelPersister.load(MODEL_OUTPUT_PATH)
 
 
 if __name__ == "__main__":

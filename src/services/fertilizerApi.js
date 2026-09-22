@@ -1,4 +1,5 @@
-const PREDICTION_ENDPOINT = "http://127.0.0.1:5000/predict";
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:5000";
+const PREDICTION_ENDPOINT = `${API_BASE_URL}/predict`;
 
 export async function fetchFertilizerPrediction(features) {
     const response = await fetch(PREDICTION_ENDPOINT, {
